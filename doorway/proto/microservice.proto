@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package microservice;
+
+service MicroserviceService {
+  rpc GetData (Empty) returns (DataResponse);
+  rpc CreateData (CreateData) returns (DataResponse);
+}
+message CreateData{
+ string name=1;
+  string email=2;
+}
+
+message Empty {}
+
+message Employee {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message DataResponse {
+  string message = 1;
+  repeated Employee data = 2;
+}
